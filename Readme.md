@@ -1,6 +1,6 @@
 # Portfolio page 
 
-My aim is to create a simple portfolio page, with relevant information about me and my projects.
+My goal is to create a simple portfolio page, with relevant information about me and my projects.
 
 ## Tech stack
 - Jekyll 
