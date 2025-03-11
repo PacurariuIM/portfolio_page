@@ -342,9 +342,39 @@ export default {
           }
         }
         
-        // In production, redirect to the actual CV file
-        const siteUrl = 'https://ionel-tech.dev';
-        return Response.redirect(`${siteUrl}${ACTUAL_CV_PATH}`, 302);
+        // In production, serve the CV directly instead of redirecting
+        // This prevents redirect loops
+        console.log('Production mode: serving CV directly');
+        
+        // Return a direct response with a download link
+        return new Response(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>CV Download</title>
+              <meta http-equiv="refresh" content="0;url=https://ionel-tech.dev${ACTUAL_CV_PATH}">
+              <style>
+                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+                .container { max-width: 600px; margin: 0 auto; }
+                .button { display: inline-block; padding: 10px 20px; background-color: #0066cc; color: white; 
+                         text-decoration: none; border-radius: 4px; margin-top: 20px; }
+              </style>
+            </head>
+            <body>
+              <div class="container">
+                <h1>Downloading Your CV</h1>
+                <p>Your CV should begin downloading automatically.</p>
+                <p>If it doesn't start automatically, please click the button below:</p>
+                <a class="button" href="https://ionel-tech.dev${ACTUAL_CV_PATH}" target="_blank">Download CV</a>
+              </div>
+            </body>
+          </html>
+        `, {
+          headers: {
+            'Content-Type': 'text/html',
+            ...corsHeaders
+          }
+        });
       } catch (error) {
         console.error('Error serving CV:', error);
         return new Response(`Error serving CV: ${error.message}`, {
