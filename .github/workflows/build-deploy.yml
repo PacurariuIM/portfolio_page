@@ -20,13 +20,30 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
+      - name: Debug - Check Environment
+        run: |
+          echo "Checking if secrets are available..."
+          if [ -n "${{ secrets.CV_WORKER_URL }}" ]; then
+            echo "CV_WORKER_URL is set"
+          else
+            echo "CV_WORKER_URL is NOT set"
+          fi
+          if [ -n "${{ secrets.CV_API_KEY }}" ]; then
+            echo "CV_API_KEY is set"
+          else
+            echo "CV_API_KEY is NOT set"
+          fi
+
       - name: Create _config_secrets.yml
         env:
           CV_WORKER_URL: ${{ secrets.CV_WORKER_URL }}
           CV_API_KEY: ${{ secrets.CV_API_KEY }}
         run: |
+          echo "Creating _config_secrets.yml..."
           echo "cv_worker_url: \"$CV_WORKER_URL\"" > _config_secrets.yml
           echo "cv_api_key: \"$CV_API_KEY\"" >> _config_secrets.yml
+          echo "Content of _config_secrets.yml (masked):"
+          sed 's/\(cv_api_key: \).*/\1"[MASKED]"/' _config_secrets.yml
 
       - name: Install dependencies
         run: bundle install
@@ -34,7 +51,18 @@ jobs:
       - name: Build site
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build --config _config.yml,_config_secrets.yml
+        run: |
+          echo "Building site with Jekyll..."
+          bundle exec jekyll build --config _config.yml,_config_secrets.yml --verbose
+
+      - name: Verify build output
+        run: |
+          echo "Checking generated HTML..."
+          if grep -l "data-worker-url" _site/pages/connect/index.html; then
+            echo "Worker URL found in generated HTML"
+          else
+            echo "Worker URL NOT found in generated HTML"
+          fi
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
