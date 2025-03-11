@@ -2,19 +2,26 @@ name = "cv-access"
 main = "index.js"
 compatibility_date = "2023-10-30"
 
-# Production configuration
-workers_dev = false
+# Development configuration - we'll override this for production
+workers_dev = true
 
-# Custom domain configuration
-routes = [
-  { pattern = "cv-api.ionel-tech.dev/*", zone_name = "ionel-tech.dev" }
-]
+# Define environment variables for development
+# [vars]
+# ALLOWED_ORIGINS = "http://localhost:4000"
+# API_KEY = "dev-api-key-for-testing"
+# URL_SECRET = "dev-secret-for-testing"
 
-# Define environment variables
-[vars]
-# These are placeholder values - replace with real values in the Cloudflare dashboard
-# or use Wrangler secrets for sensitive information
-ALLOWED_ORIGINS = "https://ionel-tech.dev"
+# Production configuration (uncomment when deploying)
+ [env.production]
+ routes = [
+   { pattern = "cv-api.ionel-tech.dev/*", zone_name = "ionel-tech.dev" }
+ ]
+ [env.production.vars]
+ ALLOWED_ORIGINS = "https://ionel-tech.dev"
+
+# In production, set these secrets using:
+# wrangler secret put API_KEY --env production
+# wrangler secret put URL_SECRET --env production
 
 # Define secrets (these should be set using wrangler secret commands, not in this file)
 # API_KEY - Used to authenticate requests to generate temporary links

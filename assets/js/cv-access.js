@@ -7,10 +7,12 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const cvButton = document.getElementById('cv-download-btn');
+  console.log('CV button found:', !!cvButton);
   
   if (cvButton) {
     // Get the configuration from the closure
     const { workerUrl, apiKey } = window.CV_CONFIG || {};
+    console.log('CV Config:', { workerUrl, apiKey: apiKey ? '[PRESENT]' : '[MISSING]' });
     
     if (!workerUrl || !apiKey) {
       console.error('Missing worker URL or API key');
@@ -26,13 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
       cvButton.disabled = true;
       
       try {
-        console.log('Attempting to fetch from worker...');
+        const fetchUrl = `${workerUrl}/generate`;
+        console.log('Attempting to fetch from:', fetchUrl);
         
         // Request a temporary link from the worker
-        const response = await fetch(workerUrl, {
+        const response = await fetch(fetchUrl, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
           },
           body: JSON.stringify({ apiKey }),
           mode: 'cors'
@@ -56,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       } catch (error) {
         console.error('Error details:', error);
+        console.error('Error name:', error.name);
+        console.error('Error message:', error.message);
         alert(`Sorry, there was an error generating the CV link: ${error.message}`);
       } finally {
         // Restore button state
