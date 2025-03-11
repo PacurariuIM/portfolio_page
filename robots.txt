@@ -1,0 +1,15 @@
+# Disallow all crawlers from indexing the site
+User-agent: *
+Disallow: /
+
+# Allow Google to index the site
+User-agent: Googlebot
+Allow: /
+Disallow: /assets/
+Disallow: /cv/
+
+# Allow Bing to index the site
+User-agent: Bingbot
+Allow: /
+Disallow: /assets/
+Disallow: /cv/ 

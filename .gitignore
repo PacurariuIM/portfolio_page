@@ -3,3 +3,10 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+node_modules
+
+# Sensitive configuration
+_config_secrets.yml
+.env
+*.env
+.env.*

@@ -18,16 +18,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: My Porfolio Page
+title: My Portfolio
+email: your.email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   My Portfolio Page, showcasing my projects and skills. 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "pacurariuim.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://ionel-tech.dev" # the base hostname & protocol for your site
 github_username: pacurariuim
+linkedin_username: pacurariu-ionel
 markdown: kramdown
 
 # Build settings
-theme: minima
+# theme: minima
 plugins:
   - jekyll-feed
 
@@ -39,14 +41,19 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - package.json
+  - package-lock.json
+  - postcss.config.js
+  - tailwind.config.js
+  - functions/

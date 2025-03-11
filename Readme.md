@@ -77,3 +77,23 @@ git branch -M main
 git remote add origin https://github.com/yourusername/yourusername.github.io.git
 git push -u origin main
 ```
+
+## Folder and files structure
+
+```
+/portfolio_page
+ ├── _includes/         # Reusable components (e.g., navbar, footer)
+ ├── _layouts/          # Page layouts
+ ├── _posts/            # (Optional) Blog posts
+ ├── _data/             # (Optional) YAML data files
+ ├── _site/             # Generated site (ignored in Git)
+ ├── assets/            # CSS, JS, images
+ ├── pages/
+ │   ├── about.md       # About Me page
+ │   ├── projects.md    # Projects page
+ │   ├── connect.md     # Connect page
+ ├── index.md           # Homepage
+ ├── _config.yml        # Jekyll config
+ ├── Gemfile            # Dependencies
+ └── README.md          # Project details
+```
