@@ -9,9 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const cvButton = document.getElementById('cv-download-btn');
   
   if (cvButton) {
-    // Get the worker URL and API key from data attributes (set by Jekyll)
-    const workerUrl = cvButton.getAttribute('data-worker-url');
-    const apiKey = cvButton.getAttribute('data-api-key');
+    // Get the configuration from the closure
+    const { workerUrl, apiKey } = window.CV_CONFIG || {};
     
     if (!workerUrl || !apiKey) {
       console.error('Missing worker URL or API key');
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({ apiKey }),
-          mode: 'cors' // Explicitly set CORS mode
+          mode: 'cors'
         });
         
         if (!response.ok) {
