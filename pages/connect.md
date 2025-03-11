@@ -4,6 +4,16 @@ title: Connect
 permalink: /pages/connect/
 ---
 
+<script>
+  // Store API credentials in closure to prevent global access
+  (function() {
+    window.CV_CONFIG = {
+      workerUrl: '{{ site.cv_worker_url }}',
+      apiKey: '{{ site.cv_api_key }}'
+    };
+  })();
+</script>
+
 <div class="max-w-3xl mx-auto">
   <h1>Let's Connect</h1>
   
@@ -64,8 +74,6 @@ permalink: /pages/connect/
         <button 
           id="cv-download-btn" 
           class="btn btn-primary"
-          data-worker-url="{{ site.cv_worker_url }}"
-          data-api-key="{{ site.cv_api_key }}"
         >Download CV</button>
       </div>
     </div>
