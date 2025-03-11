@@ -28,7 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
       cvButton.disabled = true;
       
       try {
-        const fetchUrl = `${workerUrl}/generate`;
+        // Fix duplicate /generate path
+        // If workerUrl already ends with /generate, don't append it again
+        const fetchUrl = workerUrl.endsWith('/generate') ? workerUrl : `${workerUrl}/generate`;
         console.log('Attempting to fetch from:', fetchUrl);
         
         // Request a temporary link from the worker
