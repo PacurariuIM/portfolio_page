@@ -4,6 +4,16 @@ title: Connect
 permalink: /pages/connect/
 ---
 
+<script>
+  // Store API credentials in closure to prevent global access
+  (function() {
+    window.CV_CONFIG = {
+      workerUrl: '{{ site.cv_worker_url }}',
+      apiKey: '{{ site.cv_api_key }}'
+    };
+  })();
+</script>
+
 <div class="max-w-3xl mx-auto">
   <h1>Let's Connect</h1>
   
@@ -32,8 +42,7 @@ permalink: /pages/connect/
         <div class="flex items-start">
           <div class="bg-accent text-white p-2 rounded mr-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
-              <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V9m0 2v2m0-2h2m-2 0H6" />
+              <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd" />
             </svg>
           </div>
           <div>
@@ -64,35 +73,35 @@ permalink: /pages/connect/
         <button 
           id="cv-download-btn" 
           class="btn btn-primary"
-          data-worker-url="{{ site.cv_worker_url }}"
-          data-api-key="{{ site.cv_api_key }}"
         >Download CV</button>
       </div>
     </div>
     
     <div>
       <h2 class="text-xl font-bold mb-4">Send a Message</h2>
-      <p class="text-gray-600 mb-4">
-        Have a question or want to work together? Feel free to send me a message.
-      </p>
       
       <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-          <input type="text" name="name" id="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          <input type="text" name="name" id="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
         </div>
         
         <div>
           <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-          <input type="email" name="_replyto" id="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          <input type="email" name="email" id="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
+        </div>
+        
+        <div>
+          <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+          <input type="text" name="subject" id="subject" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
         </div>
         
         <div>
           <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-          <textarea name="message" id="message" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+          <textarea name="message" id="message" rows="5" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"></textarea>
         </div>
         
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-primary w-full">Send Message</button>
       </form>
     </div>
   </div>
