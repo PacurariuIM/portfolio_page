@@ -3,7 +3,7 @@ main = "index.js"
 compatibility_date = "2023-10-30"
 
 # Development configuration - we'll override this for production
-workers_dev = true
+workers_dev = false
 
 # Define environment variables for development
 # [vars]
@@ -12,12 +12,10 @@ workers_dev = true
 # URL_SECRET = "dev-secret-for-testing"
 
 # Production configuration (uncomment when deploying)
- [env.production]
- routes = [
-   { pattern = "cv-api.ionel-tech.dev/*", zone_name = "ionel-tech.dev" }
- ]
- [env.production.vars]
- ALLOWED_ORIGINS = "https://ionel-tech.dev"
+routes = [
+  { pattern = "cv-api.ionel-tech.dev/*", zone_name = "ionel-tech.dev" }
+]
+ALLOWED_ORIGINS = "https://ionel-tech.dev"
 
 # In production, set these secrets using:
 # wrangler secret put API_KEY --env production
