@@ -2,15 +2,19 @@ name = "cv-access"
 main = "index.js"
 compatibility_date = "2023-10-30"
 
-# For testing, we'll use the workers.dev subdomain
-# You can update this with your custom domain later
-workers_dev = true
+# Production configuration
+workers_dev = false
+
+# Custom domain configuration
+routes = [
+  { pattern = "cv-api.ionel-tech.dev/*", zone_name = "ionel-tech.dev" }
+]
 
 # Define environment variables
 [vars]
 # These are placeholder values - replace with real values in the Cloudflare dashboard
 # or use Wrangler secrets for sensitive information
-ALLOWED_ORIGINS = "http://localhost:4000"
+ALLOWED_ORIGINS = "https://ionel-tech.dev"
 
 # Define secrets (these should be set using wrangler secret commands, not in this file)
 # API_KEY - Used to authenticate requests to generate temporary links
