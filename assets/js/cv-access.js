@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
       cvButton.disabled = true;
       
       try {
+        console.log('Attempting to fetch from worker...');
+        
         // Request a temporary link from the worker
-        const response = await fetch(`${workerUrl}/generate`, {
+        const response = await fetch(workerUrl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -37,19 +39,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         if (!response.ok) {
-          throw new Error(`Failed to generate CV access link: ${response.status}`);
+          const errorText = await response.text();
+          console.error('Worker response not OK:', response.status, errorText);
+          throw new Error(`Failed to generate CV access link: ${response.status} ${errorText}`);
         }
         
         const data = await response.json();
+        console.log('Worker response:', data);
         
         // Open the temporary link in a new tab
         if (data && data.url) {
+          console.log('Opening URL:', data.url);
           window.open(data.url, '_blank');
         } else {
           throw new Error('Invalid response from worker: missing URL');
         }
       } catch (error) {
-        alert('Sorry, there was an error generating the CV link. Please try again later.');
+        console.error('Error details:', error);
+        alert(`Sorry, there was an error generating the CV link: ${error.message}`);
       } finally {
         // Restore button state
         cvButton.textContent = originalText;
