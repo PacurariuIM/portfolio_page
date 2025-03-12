@@ -93,17 +93,20 @@ export default {
 
 			// Send email using Cloudflare's Email API
 			const email = {
-				to: env.CONTACT_EMAIL,
-				from: env.EMAIL_FROM,
+				to: [{ email: env.CONTACT_EMAIL }],
+				from: { email: env.EMAIL_FROM },
 				subject: `Portfolio Contact: ${payload.subject}`,
-				text: `
+				content: [{
+					type: "text/plain",
+					value: `
 Name: ${payload.name}
 Email: ${payload.email}
 Subject: ${payload.subject}
 
 Message:
 ${payload.message}
-				`
+					`
+				}]
 			};
 
 			try {
@@ -113,7 +116,7 @@ ${payload.message}
 					subject: `Portfolio Contact: ${payload.subject}`
 				});
 
-				const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/email/routing/send`, {
+				const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/emails`, {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
