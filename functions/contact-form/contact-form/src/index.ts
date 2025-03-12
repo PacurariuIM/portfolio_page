@@ -53,9 +53,22 @@ export default {
 			});
 		}
 
+		const url = new URL(request.url);
+		
+		// Only handle /send path
+		if (url.pathname !== '/send') {
+			return new Response('Not found', { 
+				status: 404,
+				headers: corsHeaders
+			});
+		}
+
 		// Only allow POST requests
 		if (request.method !== 'POST') {
-			return new Response('Method not allowed', { status: 405 });
+			return new Response('Method not allowed', { 
+				status: 405,
+				headers: corsHeaders
+			});
 		}
 
 		try {
