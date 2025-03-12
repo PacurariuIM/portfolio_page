@@ -12,6 +12,55 @@ permalink: /pages/connect/
       apiKey: '{{ site.cv_api_key }}'
     };
   })();
+
+  // Contact form handling
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+      
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value
+      };
+
+      try {
+        const response = await fetch('https://contact-api.ionel-tech.dev', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.text();
+
+        if (response.ok) {
+          // Show success message
+          form.reset();
+          alert('Message sent successfully! I will get back to you soon.');
+        } else {
+          throw new Error(result || 'Failed to send message');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to send message. Please try again later.');
+      } finally {
+        // Reset button state
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+  });
 </script>
 
 <div class="max-w-3xl mx-auto">
@@ -29,19 +78,6 @@ permalink: /pages/connect/
         <div class="flex items-start">
           <div class="bg-accent text-white p-2 rounded mr-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-            </svg>
-          </div>
-          <div>
-            <p class="font-medium">Email</p>
-            <a href="mailto:{{ site.email }}" class="text-gray-600">{{ site.email }}</a>
-          </div>
-        </div>
-        
-        <div class="flex items-start">
-          <div class="bg-accent text-white p-2 rounded mr-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd" />
             </svg>
           </div>
@@ -54,7 +90,7 @@ permalink: /pages/connect/
         <div class="flex items-start">
           <div class="bg-accent text-white p-2 rounded mr-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M0 5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L5.586 10 3.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+              <path d="M15.988 16.645c-0.633 0-1.145-0.512-1.145-1.145v-2.291c0-1.090-0.363-1.873-0.785-2.265 2.583-0.288 5.291-1.267 5.291-5.725 0-1.267-0.45-2.303-1.197-3.113 0.12-0.293 0.519-1.474-0.114-3.074 0 0-0.975-0.312-3.197 1.193-0.927-0.258-1.921-0.387-2.907-0.391-0.986 0.004-1.98 0.133-2.907 0.391-2.222-1.505-3.197-1.193-3.197-1.193-0.633 1.6-0.234 2.781-0.114 3.074-0.747 0.81-1.197 1.846-1.197 3.113 0 4.446 2.708 5.437 5.291 5.725-0.422 0.392-0.785 1.175-0.785 2.265v2.291c0 0.633-0.512 1.145-1.145 1.145s-1.145-0.512-1.145-1.145v-2.291c0-2.265 1.357-3.797 2.708-4.446-2.265-0.258-6.437-1.145-6.437-7.274 0-1.61 0.575-2.927 1.516-3.967-0.15-0.372-0.657-1.873 0.144-3.904 0 0 1.236-0.396 4.056 1.511 1.177-0.327 2.444-0.491 3.707-0.497 1.263 0.006 2.53 0.17 3.707 0.497 2.82-1.907 4.056-1.511 4.056-1.511 0.801 2.031 0.294 3.532 0.144 3.904 0.941 1.040 1.516 2.357 1.516 3.967 0 6.129-4.172 7.016-6.437 7.274 1.351 0.649 2.708 2.181 2.708 4.446v2.291c0 0.633-0.512 1.145-1.145 1.145z"/>
             </svg>
           </div>
           <div>
@@ -80,7 +116,7 @@ permalink: /pages/connect/
     <div>
       <h2 class="text-xl font-bold mb-4">Send a Message</h2>
       
-      <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+      <form id="contact-form" class="space-y-4">
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
           <input type="text" name="name" id="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
