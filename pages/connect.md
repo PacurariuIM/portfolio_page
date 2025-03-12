@@ -34,7 +34,7 @@ permalink: /pages/connect/
       };
 
       try {
-        const response = await fetch('https://contact-api.ionel-tech.dev', {
+        const response = await fetch('https://contact-api.ionel-tech.dev/send', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
