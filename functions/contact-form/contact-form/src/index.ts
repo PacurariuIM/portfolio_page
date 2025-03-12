@@ -94,6 +94,12 @@ ${payload.message}
 			};
 
 			try {
+				console.log('Attempting to send email with payload:', {
+					to: env.CONTACT_EMAIL,
+					from: env.EMAIL_FROM,
+					subject: `Portfolio Contact: ${payload.subject}`
+				});
+
 				const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/email/routing/send`, {
 					method: 'POST',
 					headers: {
@@ -104,19 +110,42 @@ ${payload.message}
 				});
 
 				const result = await response.json() as CloudflareAPIResponse;
+				console.log('Email API response:', {
+					status: response.status,
+					ok: response.ok,
+					result: result
+				});
 				
 				if (!response.ok) {
 					console.error('Email API error:', result);
-					throw new Error(result.errors?.[0]?.message || 'Failed to send email');
+					return new Response(JSON.stringify({
+						error: 'Failed to send email',
+						details: result.errors?.[0]?.message || 'Unknown error'
+					}), { 
+						status: 500,
+						headers: {
+							...corsHeaders,
+							'Content-Type': 'application/json'
+						}
+					});
 				}
 
 				return new Response('Message sent successfully', {
 					status: 200,
 					headers: corsHeaders,
 				});
-			} catch (emailError) {
+			} catch (emailError: unknown) {
 				console.error('Failed to send email:', emailError);
-				throw new Error('Failed to send email');
+				return new Response(JSON.stringify({
+					error: 'Failed to send email',
+					details: emailError instanceof Error ? emailError.message : 'Unknown error'
+				}), { 
+					status: 500,
+					headers: {
+						...corsHeaders,
+						'Content-Type': 'application/json'
+					}
+				});
 			}
 
 		} catch (err) {
