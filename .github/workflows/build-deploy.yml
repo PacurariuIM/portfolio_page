@@ -12,7 +12,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -64,10 +65,17 @@ jobs:
             echo "Worker URL NOT found in generated HTML"
           fi
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          cname: ionel-tech.dev  # Add your custom domain 
+          cname: ionel-tech.dev
+          force_orphan: true  # Create a new history for gh-pages branch
+          commit_message: "Deploy: ${{ github.event.head_commit.message }}"
+          full_commit_message: |
+            Deploy from ${{ github.sha }}
+            
+            Changes:
+            ${{ github.event.head_commit.message }} 
