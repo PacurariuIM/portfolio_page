@@ -14,7 +14,7 @@
 /**
  * Contact Form Handler
  * 
- * This worker handles contact form submissions and sends emails using Cloudflare's Email API.
+ * This worker handles contact form submissions and sends emails using MailChannels API.
  * It includes CORS support and basic validation.
  */
 
@@ -35,6 +35,19 @@ interface Env {
 	EMAIL_FROM: string;     // The sender email address
 	CF_API_TOKEN: string;   // Cloudflare API token
 	CF_ACCOUNT_ID: string;  // Cloudflare account ID
+}
+
+// Define the SendEmail interface
+interface SendEmail {
+	send: (message: EmailMessage) => Promise<void>;
+}
+
+interface EmailMessage {
+	from: string | { email: string; name?: string };
+	to: string | { email: string; name?: string } | (string | { email: string; name?: string })[];
+	subject: string;
+	text?: string;
+	html?: string;
 }
 
 // CORS headers for preflight requests
@@ -91,50 +104,39 @@ export default {
 				});
 			}
 
-			// Send email using Cloudflare's Email Workers API
-			const email = {
-				personalizations: [{
-					to: [{ email: env.CONTACT_EMAIL }]
-				}],
-				from: { email: env.EMAIL_FROM },
-				subject: `Portfolio Contact: ${payload.subject}`,
-				content: [{
-					type: "text/plain",
-					value: `
-Name: ${payload.name}
-Email: ${payload.email}
+			// Send email using Email Workers binding
+			try {
+				// Create a simple email message
+				const message = `
+From: ${payload.name} <${payload.email}>
 Subject: ${payload.subject}
 
-Message:
 ${payload.message}
-					`
-				}]
-			};
+				`;
 
-			try {
-				console.log('Attempting to send email with payload:', {
-					to: env.CONTACT_EMAIL,
-					from: env.EMAIL_FROM,
-					subject: `Portfolio Contact: ${payload.subject}`
-				});
-
-				const response = await fetch('https://api.mailchannels.net/tx/v1/send', {
+				// Send email using Cloudflare's Email API
+				const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/email/routing/send`, {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
+						'X-Auth-Email': env.EMAIL_FROM,
+						'X-Auth-Key': env.CF_API_TOKEN
 					},
-					body: JSON.stringify(email),
+					body: JSON.stringify({
+						message: {
+							to: [env.CONTACT_EMAIL],
+							from: env.EMAIL_FROM,
+							subject: `Portfolio Contact: ${payload.subject}`,
+							text: message
+						}
+					})
 				});
 
 				const result = await response.json() as CloudflareAPIResponse;
-				console.log('Email API response:', {
-					status: response.status,
-					ok: response.ok,
-					result: result
-				});
-				
+				console.log('Email API response:', result);
+
 				if (!response.ok) {
-					console.error('Email API error:', result);
+					console.error('Failed to send email:', result);
 					return new Response(JSON.stringify({
 						error: 'Failed to send email',
 						details: result.errors?.[0]?.message || 'Unknown error'
@@ -146,12 +148,14 @@ ${payload.message}
 						}
 					});
 				}
-
+				
+				console.log('Email sent successfully');
+				
 				return new Response('Message sent successfully', {
 					status: 200,
 					headers: corsHeaders,
 				});
-			} catch (emailError: unknown) {
+			} catch (emailError) {
 				console.error('Failed to send email:', emailError);
 				return new Response(JSON.stringify({
 					error: 'Failed to send email',
@@ -164,12 +168,17 @@ ${payload.message}
 					}
 				});
 			}
-
 		} catch (err) {
 			console.error('Error processing request:', err);
-			return new Response('Internal server error', { 
+			return new Response(JSON.stringify({
+				error: 'Internal server error',
+				details: err instanceof Error ? err.message : 'Unknown error'
+			}), { 
 				status: 500,
-				headers: corsHeaders
+				headers: {
+					...corsHeaders,
+					'Content-Type': 'application/json'
+				}
 			});
 		}
 	},
