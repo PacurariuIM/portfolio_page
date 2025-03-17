@@ -13,53 +13,14 @@ permalink: /pages/connect/
     };
   })();
 
-  // Contact form handling
+  // Show success message if URL has success parameter
   document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.textContent;
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // Show loading state
-      submitButton.disabled = true;
-      submitButton.textContent = 'Sending...';
-      
-      const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        subject: form.subject.value,
-        message: form.message.value
-      };
-
-      try {
-        const response = await fetch('https://contact-api.ionel-tech.dev/send', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
-
-        const result = await response.text();
-
-        if (response.ok) {
-          // Show success message
-          form.reset();
-          alert('Message sent successfully! I will get back to you soon.');
-        } else {
-          throw new Error(result || 'Failed to send message');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Failed to send message. Please try again later.');
-      } finally {
-        // Reset button state
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
-      }
-    });
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('message') === 'success') {
+      alert('Message sent successfully! I will get back to you soon.');
+      // Remove the query parameter without refreshing the page
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
   });
 </script>
 
@@ -116,7 +77,13 @@ permalink: /pages/connect/
     <div>
       <h2 class="text-xl font-bold mb-4">Send a Message</h2>
       
-      <form id="contact-form" class="space-y-4">
+      <form id="contact-form" class="space-y-4" action="https://formsubmit.co/{{ site.contact_email }}" method="POST">
+        <!-- FormSubmit.co configuration -->
+        <input type="hidden" name="_subject" value="Portfolio Contact Form">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://ionel-tech.dev/pages/connect/?message=success">
+        <input type="hidden" name="_captcha" value="false">
+        
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
           <input type="text" name="name" id="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
