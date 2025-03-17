@@ -91,9 +91,11 @@ export default {
 				});
 			}
 
-			// Send email using Cloudflare's Email API
+			// Send email using Cloudflare's Email Workers API
 			const email = {
-				to: [{ email: env.CONTACT_EMAIL }],
+				personalizations: [{
+					to: [{ email: env.CONTACT_EMAIL }]
+				}],
 				from: { email: env.EMAIL_FROM },
 				subject: `Portfolio Contact: ${payload.subject}`,
 				content: [{
@@ -116,11 +118,10 @@ ${payload.message}
 					subject: `Portfolio Contact: ${payload.subject}`
 				});
 
-				const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/emails`, {
+				const response = await fetch('https://api.mailchannels.net/tx/v1/send', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
-						'Authorization': `Bearer ${env.CF_API_TOKEN}`,
 					},
 					body: JSON.stringify(email),
 				});
