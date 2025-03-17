@@ -82,7 +82,11 @@ permalink: /pages/connect/
         <input type="hidden" name="_subject" value="Portfolio Contact Form">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://ionel-tech.dev/pages/connect/?message=success">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_captcha" value="true">
+        <!-- Security enhancements -->
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_autoresponse" value="Thank you for your message. I have received it and will get back to you soon.">
+        <input type="hidden" name="_allowed-fields" value="name,email,subject,message">
         
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
