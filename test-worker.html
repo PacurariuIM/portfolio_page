@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Cloudflare Worker</title>
+</head>
+<body>
+  <h1>Test Cloudflare Worker</h1>
+  <button id="test-button">Test Worker</button>
+  <pre id="result"></pre>
+
+  <script>
+    document.getElementById('test-button').addEventListener('click', async function() {
+      const resultElement = document.getElementById('result');
+      resultElement.textContent = 'Testing...';
+      
+      try {
+        // Try different URL formats
+        const urls = [
+          'https://cv-access.testsub.workers.dev/generate',
+          'https://cv-access.workers.dev/generate',
+          'https://testsub.workers.dev/cv-access/generate'
+        ];
+        
+        const apiKey = 'cheiameadeAPI1234';
+        
+        for (const url of urls) {
+          resultElement.textContent += `\nTrying ${url}...`;
+          
+          try {
+            const response = await fetch(url, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ apiKey })
+            });
+            
+            if (response.ok) {
+              const data = await response.json();
+              resultElement.textContent += `\nSuccess with ${url}!\nResponse: ${JSON.stringify(data, null, 2)}`;
+              return; // Stop if successful
+            } else {
+              resultElement.textContent += `\nFailed with status: ${response.status}`;
+            }
+          } catch (urlError) {
+            resultElement.textContent += `\nError: ${urlError.message}`;
+          }
+        }
+        
+        resultElement.textContent += '\n\nAll URLs failed. Please check your worker deployment.';
+      } catch (error) {
+        resultElement.textContent = `Error: ${error.message}`;
+      }
+    });
+  </script>
+</body>
+</html> 

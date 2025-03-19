@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career & Studies | My Portfolio</title>
+    <meta name="description" content="My Portfolio Page, showcasing my projects and skills. ">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- CV Access Script -->
+    <script src="/assets/js/cv-access.js"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        position: relative;
+        min-height: 100vh;
+      }
+      
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/assets/images/dev_background.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.1;
+        z-index: -1;
+      }
+
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.9);
+        min-height: 100vh;
+      }
+    </style>
+
+    <div class="content-wrapper">
+      <header class="bg-white shadow">
+  <div class="container-custom">
+    <nav class="flex items-center justify-between py-4">
+      <a href="/" class="text-xl font-bold text-primary hover:no-underline">My Portfolio</a>
+      
+      <ul class="flex space-x-6">
+        <li><a href="/" class="text-gray-700 hover:text-accent hover:no-underline">Home</a></li>
+        <li><a href="/pages/about" class="text-gray-700 hover:text-accent hover:no-underline">Experience</a></li>
+        <li><a href="/pages/projects" class="text-gray-700 hover:text-accent hover:no-underline">Projects</a></li>
+        <li><a href="/pages/connect" class="text-gray-700 hover:text-accent hover:no-underline">Connect</a></li>
+      </ul>
+    </nav>
+  </div>
+</header> 
+      <main class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto py-16">
+  <!-- Career Section -->
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8">Career Journey</h2>
+    
+    <div class="space-y-6">
+      <!-- Data Analyst -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-bold text-xl">Data Analyst</h3>
+          <span class="text-gray-600">July 2024 - Dec 2024</span>
+        </div>
+        <h4 class="text-accent mb-2">Professional Services Consultant</h4>
+        <p class="text-gray-600 mb-4">As a Professional Services Consultant, I provide expert support on the Aternity EUEM solution. My role involves optimizing backend data processes, implementing automated remediation actions, and delivering insights through monthly reports and clear, data-driven dashboards that drive impactful decision-making.</p>
+        <ul class="list-disc list-inside space-y-2 text-gray-600">
+          <li>Improved data-backend processes, leading to a 15% increase in client retention and a user experience score boost from 7.6 to 8.2 in the first 2 months.</li>
+          <li>Designed and implemented automated remediation actions, enhancing support service (ServiceNow) performance by over 18% within the first month.</li>
+        </ul>
+      </div>
+
+      <!-- DevOps Engineer -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-bold text-xl">DevOps Engineer</h3>
+          <span class="text-gray-600">Oct 2023 – July 2024</span>
+        </div>
+        <h4 class="text-accent mb-2">Cavell Group</h4>
+        <p class="text-gray-600">At Cavell Group, I focused on backend development with Python to enhance product performance and reliability. My key contributions involved refactoring core code and developing new scripts, which accelerated delivery and improved project outcome.</p>
+      </div>
+
+      <!-- Application Management Engineer -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-bold text-xl">Application Management Engineer</h3>
+          <span class="text-gray-600">June 2022 – Oct 2023</span>
+        </div>
+        <h4 class="text-accent mb-2">Endava</h4>
+        <p class="text-gray-600">As an Application Management Engineer at Endava, I focused on enhancing backend functionality, using XML (Rulebook platform) and user experience for our finance application. My role involved optimizing processes, managing localization efforts, and supporting teams.</p>
+      </div>
+
+      <!-- Artillery Officer -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-bold text-xl">Artillery Officer</h3>
+          <span class="text-gray-600">Aug 2007 – Apr 2022</span>
+        </div>
+        <h4 class="text-accent mb-2">Romanian Air Force</h4>
+        <p class="text-gray-600">As an Air Force Officer, I managed teams in high-pressure environments, prioritizing strategic collaboration and efficient resource allocation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section>
+    <h2 class="text-3xl font-bold mb-8">Education &amp; Certifications</h2>
+    
+    <div class="space-y-6">
+      <!-- Add your education entries here -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-bold text-xl">Your Degree</h3>
+          <span class="text-gray-600">Year - Year</span>
+        </div>
+        <h4 class="text-accent mb-2">University Name</h4>
+        <p class="text-gray-600">Brief description of your studies and achievements.</p>
+      </div>
+
+      <!-- Certifications -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="font-bold text-xl mb-4">Professional Certifications</h3>
+        <ul class="space-y-3">
+          <li class="flex items-center">
+            <span class="w-24 text-gray-600">2024</span>
+            <span>Certification Name</span>
+          </li>
+          <!-- Add more certifications as needed -->
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+      </main>
+      <footer class="bg-primary text-white py-8">
+  <div class="container-custom">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <p class="text-sm">&copy; 2025 My Portfolio. All rights reserved.</p>
+      </div>
+      
+      <div class="flex space-x-4">
+        
+        <a href="https://github.com/pacurariuim" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:no-underline">
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        
+        
+        <a href="/pages/connect" class="text-gray-300 hover:text-white hover:no-underline">
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+</footer> 
+    </div>
+  </body>
+</html> 

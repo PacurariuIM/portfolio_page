@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | My Portfolio</title>
+    <meta name="description" content="My Portfolio Page, showcasing my projects and skills. ">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- CV Access Script -->
+    <script src="/assets/js/cv-access.js"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        position: relative;
+        min-height: 100vh;
+      }
+      
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/assets/images/dev_background.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.1;
+        z-index: -1;
+      }
+
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.9);
+        min-height: 100vh;
+      }
+    </style>
+
+    <div class="content-wrapper">
+      <header class="bg-white shadow">
+  <div class="container-custom">
+    <nav class="flex items-center justify-between py-4">
+      <a href="/" class="text-xl font-bold text-primary hover:no-underline">My Portfolio</a>
+      
+      <ul class="flex space-x-6">
+        <li><a href="/" class="text-gray-700 hover:text-accent hover:no-underline">Home</a></li>
+        <li><a href="/pages/about" class="text-gray-700 hover:text-accent hover:no-underline">Experience</a></li>
+        <li><a href="/pages/projects" class="text-gray-700 hover:text-accent hover:no-underline">Projects</a></li>
+        <li><a href="/pages/connect" class="text-gray-700 hover:text-accent hover:no-underline">Connect</a></li>
+      </ul>
+    </nav>
+  </div>
+</header> 
+      <main class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+  <h1>About Me</h1>
+  
+  <div class="mb-8">
+    <p class="text-lg mb-4">
+      With a background as an Air Force officer and strong backend development skills, I bring a disciplined, reliable approach to tech projects. I’m a collaborative team player who thrives under pressure, known for integrity and delivering solid results. Ready to bring these qualities into an engineering role and contribute to impactful, efficient solutions.
+    </p>
+    <p class="mb-4">
+      TODO
+    </p>
+  </div>
+  
+  <h2>Skills</h2>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+    <div class="bg-white p-4 rounded shadow">
+      <h3 class="text-lg font-medium mb-2">Frontend</h3>
+      <ul class="list-disc pl-5">
+        <li>HTML/CSS</li>
+        <li>JavaScript/TypeScript</li>
+      </ul>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <h3 class="text-lg font-medium mb-2">Backend</h3>
+      <ul class="list-disc pl-5">
+        <li>Python</li>
+        <li>SQL</li>
+        <li>RESTful APIs</li>
+        <li>PowerShell</li>
+      </ul>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <h3 class="text-lg font-medium mb-2">Data Vizualization</h3>
+      <ul class="list-disc pl-5">
+        <li>PowerBI</li>
+        <li>Tableau</li>
+      </ul>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <h3 class="text-lg font-medium mb-2">Tools</h3>
+      <ul class="list-disc pl-5">
+        <li>Git</li>
+        <li>Docker</li>
+        <li>CI/CD</li>
+        <li>AWS/Azure</li>
+        <li>MS Office suite</li>
+      </ul>
+    </div>
+  </div>
+  
+  <h2>Experience</h2>
+  <div class="space-y-6 mb-8">
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">Data Analyst</h3>
+      <p class="text-gray-600 mb-2">Riverbed Technologies • July 2024 – Dec 2024</p>
+      <p>
+      As a Professional Services Consultant, I provide expert support on the Aternity EUEM so-lution. My role involves optimizing backend data processes, implementing automated re-mediation actions, and delivering insights through monthly reports and clear, data-driven dashboards that drive impactful decision-making.</p>
+      - Improved data-backend processes, leading to a 15% increase in client retention and a user experience score boost from 7.6 to 8.2 in the first 2 months.&lt;/p&gt;
+      - Designed and implemented automated remediation actions, enhancing support service (ServiceNow) performance by over 18% within the first month.
+      &lt;/p&gt;
+    </div>
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">Network Engineer</h3>
+      <p class="text-gray-600 mb-2">Cavell Group • Oct 2023 – July 2024</p>
+      <p>At Cavell Group, I focused on backend development with Python to enhance product per-formance and reliability. My key contributions involved refactoring core code and develop-ing new scripts, which accelerated delivery and improved project outcome.</p>
+      - Refactored and optimized Python code, enabling the team to deliver the product one month ahead of schedule, resulting in almost 20% revenue increase.&lt;/p&gt;
+      - Contributed to implementing a local LLM solution using Ollama, tailored for data priva-cy and customized client applications.
+      &lt;/p&gt;
+    </div>
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">Cloud &amp; DevOps Engineering</h3>
+      <p class="text-gray-600 mb-2">AWS Cloud Project Bootcamp (ExamPro) • Feb 2023 – July 2023</p>
+      <p>During the AWS Cloud Project Bootcamp, I had the opportunity to work on an ambitious project where we designed a micro messaging app capable of sending ephemeral messages that automatically delete after a set period. This complex undertaking involved both backend and frontend development and required a diverse skill set and technical expertise.</p>
+      A significant focus of the bootcamp was troubleshooting. We faced numerous challenges in making the app work, which led to long, collaborative troubleshooting sessions with my fellow students. We supported each other through the process, sharing insights and solutions, which fostered a strong sense of teamwork and camaraderie. Out of more than 10,000 students enrolled, only about 100 finished, and I was proud to be one of the few—around 30 of us— recognized as Gold Squad Members for our exceptional commitment and problem-solving skills.&lt;/p&gt; 
+      Throughout the bootcamp, I gained hands-on experience with a wide array of AWS services and tools, such as AWS Lambda, ECS, ECR, Fargate, and CloudFormation. I utilized Python and Flask for backend development while building the frontend with JavaScript and React. For data storage, we employed PostgreSQL and DynamoDB, ensuring efficient data management and retrieval. The development process required significant perseverance and dedication, as we tackled complex issues together. I honed my skills in terminal operations, bash scripting, and working with YAML files. As part of the CI/CD pipeline, I worked with AWS CodeBuild and CodePipeline, gaining valuable insights into DevOps practices and the importance of automation in modern software development. I also explored Cognito for user authentication and learned the basics of Ruby, further expanding my programming skills. &lt;/p&gt;
+      This bootcamp not only deepened my technical expertise as a cloud engineer but also strengthened my understanding of network architecture and DevOps principles. The experience taught me the importance of perseverance and collaboration in overcoming challenges, and I emerged from it with both enhanced skills and a strong sense of accomplishment.
+      &lt;/p&gt;
+    </div>
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">Application Management Engineer</h3>
+      <p class="text-gray-600 mb-2">Endava • June 2022 – Oct 2023</p>
+      <p>As an Application Management Engineer at Endava, I focused on enhancing backend functionality, using XML (Rulebook platform) and user experience for our finance applica-tion. My role involved optimizing processes, managing localization efforts, and supporting teams.</p>
+      - Completed critical tasks two sprints ahead of schedule for French localization project, resulting in over 15% revenue increase due to faster product implementation.&lt;/p&gt;
+      - Successfully completed a 3-month Python training program, deepening programming knowledge to better support team objectives and future projects
+      &lt;/p&gt;
+    </div>
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">E-commerce</h3>
+      <p class="text-gray-600 mb-2">Own company • Mar 2018 – Apr 2021</p>
+      <p>I've invested my free time and resources in the e-commerce field, selling on Amazon.us and Emag (Romania). It was an incredible experience, taking care of every aspect of a business (from discussing with the factory to marketing the product on different platforms).
+      </p>
+    </div>
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">Artillery Officer</h3>
+      <p class="text-gray-600 mb-2">Romanian Air Force • Aug 2007 – Apr 2022</p>
+      <p>As an Air Force Officer, I managed teams in high-pressure environments, prioritizing stra-tegic collaboration and efficient resource allocation.</p>
+      - Directed teams of over 100 personnel, achieving high performance and precision in both live exercises and simulations.&lt;/p&gt;
+      - Built a disciplined and respectful team culture, maintaining strong morale and results under challenging conditions.
+      &lt;/p&gt;
+    </div>
+  </div>
+  <h2>Education</h2>
+  <div class="space-y-6 mb-8">
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">Python Programming Course</h3>
+      <p class="text-gray-600 mb-2">IT School • Nov 2021 – Apr 2022</p>
+      <p>Learned fundamentals, applied the knowledge to build a financing app.
+      </p> 
+    </div>
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">Terraform Beginner Bootcamp</h3>
+      <p class="text-gray-600 mb-2">ExamPro • Sep 2023 – Nov 2023</p>
+      <p>Introduction to Terraform, through a project.
+      </p> 
+    </div>
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">AWS Cloud Project Bootcamp</h3>
+      <p class="text-gray-600 mb-2">ExamPro • Feb 2023 – July 2023</p>
+      <p>Cloud Engineering bootcamp, focused on AWS services and full stack development, DevOps practices, resulting in a very complex learning experience.
+      </p> 
+    </div>
+    <div class="bg-white p-6 rounded shadow">
+      <h3 class="text-xl font-medium mb-1">Ground Based Air Defense</h3>
+      <p class="text-gray-600 mb-2">Air Force Academy "Henry Coanda" • Sep 2003 – June 2007</p>
+      <p>Bachelor's Degree in Organizational Management.
+      Technical curriculum (Advanced Mathematics, Electronics, Radars, etc)
+      </p> 
+    </div>
+  </div>
+<h2>Certifications</h2>
+  <div class="space-y-6 mb-8">
+    <div class="bg-white p-6 rounded shadow">
+      <p>- Cisco Certified Network Associate (CCNA)</p>
+      - Riverbed End-User Experience Monitoring Core Certification&lt;/p&gt;
+      - AWS Certified Cloud Practitioner&lt;/p&gt;
+      - Microsoft Certified: Azure Fundamentals&lt;/p&gt;
+      - AWS Cloud Project Bootcamp (Gold Squad)&lt;/p&gt;
+      - Terraform Beginner Bootcamp&lt;/p&gt;
+      - MTA Introduction to Programming using Python
+      &lt;/p&gt;
+     </div>
+  </div>
+
+  <div class="text-center">
+    <a href="/pages/connect" class="btn btn-primary">Get in Touch</a>
+  </div>
+</div>
+
+      </main>
+      <footer class="bg-primary text-white py-8">
+  <div class="container-custom">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <p class="text-sm">&copy; 2025 My Portfolio. All rights reserved.</p>
+      </div>
+      
+      <div class="flex space-x-4">
+        
+        <a href="https://github.com/pacurariuim" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:no-underline">
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        
+        
+        <a href="/pages/connect" class="text-gray-300 hover:text-white hover:no-underline">
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+</footer> 
+    </div>
+  </body>
+</html> 
