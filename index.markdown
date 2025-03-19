@@ -6,19 +6,45 @@ layout: default
 ---
 
 <section class="py-16 md:py-24">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-    <div>
-      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Hi, I'm <span class="text-accent">Ionel-Mihai Pacurariu</span></h1>
-      <p class="text-xl text-gray-600 mb-6">I'm passionate about tech and my goal is to solve problems.</p>
-      <div class="flex space-x-4">
-        <a href="{{ '/pages/projects' | relative_url }}" class="btn btn-primary">View Projects</a>
-        <a href="{{ '/pages/connect' | relative_url }}" class="btn bg-gray-200 text-gray-800 hover:bg-gray-300 hover:no-underline">Get in Touch</a>
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+    <!-- Main content area - takes up 8 columns on md screens -->
+    <div class="md:col-span-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6">Hi, I'm <span class="text-accent">Ionel-Mihai Pacurariu</span></h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-600 mb-6">Welcome to my corner of the web! I'm a tech enthusiast with a unique journey from military service to the world of technology.</p>
+        
+        <h2 class="text-2xl font-semibold mb-4">About Me</h2>
+        <p>My path has been anything but conventional. After serving as an Artillery Officer for 15 years, I made a bold transition into the tech world, driven by my passion for problem-solving and continuous learning.</p>
+        
+        <h2 class="text-2xl font-semibold mb-4 mt-8">What Drives Me</h2>
+        <p>I'm fascinated by the way technology can transform ideas into solutions that make a real difference. Whether it's optimizing processes, building applications, or analyzing data, I find joy in creating meaningful impact through technology.</p>
+        
+        <h2 class="text-2xl font-semibold mb-4 mt-8">Beyond Tech</h2>
+        <p>When I'm not coding or exploring new technologies, you'll find me [Your interests/hobbies here]. I believe in maintaining a balanced life where continuous learning meets personal growth.</p>
+        
+        <div class="flex space-x-4 mt-8">
+          <a href="{{ '/about' | relative_url }}" class="btn btn-primary">Career & Studies</a>
+          <a href="{{ '/pages/projects' | relative_url }}" class="btn bg-gray-200 text-gray-800 hover:bg-gray-300 hover:no-underline">View Projects</a>
+        </div>
       </div>
     </div>
-    <div class="hidden md:block">
-      <!-- Placeholder for profile image or illustration -->
-      <div class="bg-gray-200 h-80 rounded-lg flex items-center justify-center">
-        <img src="/assets/documents/Ionel.jpg" alt="Ionel-Mihai Pacurariu" class="w-full h-full object-cover rounded-lg">
+    
+    <!-- Sidebar/Picture area - takes up 4 columns on md screens -->
+    <div class="md:col-span-4">
+      <div class="sticky top-8">
+        <div class="bg-gray-200 rounded-lg overflow-hidden">
+          <img src="/assets/images/Ionel.jpg" alt="Ionel-Mihai Pacurariu" class="w-full h-auto object-cover">
+        </div>
+        
+        <div class="mt-6 bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="{{ '/pages/connect' | relative_url }}" class="text-accent hover:underline">Get in Touch</a></li>
+            <li><a href="[Your LinkedIn URL]" class="text-accent hover:underline">LinkedIn</a></li>
+            <li><a href="[Your GitHub URL]" class="text-accent hover:underline">GitHub</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
