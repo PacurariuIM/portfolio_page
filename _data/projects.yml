@@ -19,7 +19,7 @@
 
 - name: "Nutrition app"
   description: "A web application that helps users discover recipes based on available ingredients. Built with Flask and featuring recipe scraping, unit conversion, and PDF export capabilities."
-  image: "/assets/images/project2.jpg"
+  image: "/assets/images/food_app.png"
   technologies:
     - name: "Flask"
       class: "bg-blue-100 text-blue-800"
