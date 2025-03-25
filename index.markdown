@@ -24,7 +24,7 @@ layout: default
     <div class="w-full md:w-64 flex-shrink-0">
       <div class="sticky top-8">
         <div class="bg-gray-200 rounded-lg overflow-hidden mb-6">
-          <img src="/assets/images/Ionel.jpg" alt="Ionel-Mihai Pacurariu" class="w-full h-auto object-cover">
+          <img src="/assets/images/Ionel_pic.jpg" alt="Ionel-Mihai Pacurariu" class="w-full h-auto object-cover">
         </div>
         
         <!-- <div class="bg-white p-6 rounded-lg shadow">
