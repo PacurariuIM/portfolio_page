@@ -24,35 +24,51 @@
         background-attachment: fixed;
       }
 
-      .content-wrapper {
-        position: relative;
-        min-height: 100vh;
-      }
-
-      .content-area {
-        background-color: rgba(255, 255, 255, 0.95);
-        border-radius: 8px;
-        margin: 1rem auto;
+      .outer-container {
+        max-width: 90%;
+        margin: 0 auto;
         padding: 2rem;
       }
 
+      .content-wrapper {
+        position: relative;
+        min-height: 100vh;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
       header {
-        background-color: rgba(255, 255, 255, 0.95) !important;
+        background-color: rgba(255, 255, 255, 1) !important;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .content-area {
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
       }
 
       footer {
-        background-color: rgba(255, 255, 255, 0.95) !important;
+        background-color: rgba(255, 255, 255, 1) !important;
+        margin-top: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
     </style>
 
-    <div class="content-wrapper">
-      {% include header.html %}
-      <main>
-        <div class="content-area">
-          {{ content }}
-        </div>
-      </main>
-      {% include footer.html %}
+    <div class="outer-container">
+      <div class="content-wrapper">
+        {% include header.html %}
+        <main>
+          <div class="content-area">
+            {{ content }}
+          </div>
+        </main>
+        {% include footer.html %}
+      </div>
     </div>
   </body>
 </html> 
