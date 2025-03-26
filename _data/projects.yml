@@ -1,5 +1,5 @@
 - name: "Portfolio website"
-  description: "This website! This is a personal portfolio website built using Jekyll and TailwindCSS, featuring a contact form and secure CV access control through Cloudflare Workers. The project implements various security measures including DDoS protection and controlled access to sensitive documents, while being hosted on GitHub Pages with a custom domain setup."
+  description: "This page is my personal portfolio website built using Jekyll and TailwindCSS, featuring a contact form and secure CV access control through Cloudflare Workers. The project implements various security measures including DDoS protection and controlled access to sensitive documents, while being hosted on GitHub Pages with a custom domain setup."
   image: "/assets/images/project1.jpg"
   technologies:
     - name: "Jekyll"
@@ -37,7 +37,7 @@
       class: "bg-purple-100 text-purple-800"
     - name: "Hetzner Cloud server"
       class: "bg-red-100 text-red-800"
-  demo_url: "https://demo-project2.example.com"
+  demo_url: "https://kitche-net.eu"
   github_url: "https://github.com/PacurariuIM/Project_1_Nutrition"
 
 - name: "German language learning app (WIP)"

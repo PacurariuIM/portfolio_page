@@ -5,10 +5,8 @@ permalink: /pages/about/
 ---
 
 <div class="max-w-3xl mx-auto">
-  <h1>About Me</h1>
-  
   <div class="mb-8">
-    <p class="text-lg mb-4">
+    <p class="mb-4">
       With a background as an Air Force officer and strong backend development skills, I bring a disciplined, reliable approach to tech projects. I’m a collaborative team player who thrives under pressure, known for integrity and delivering solid results. Ready to bring these qualities into an engineering role and contribute to impactful, efficient solutions.
     </p>
     <p class="mb-4">
@@ -19,7 +17,7 @@ permalink: /pages/about/
     </p>
   </div>
   
-  <h2>Skills</h2>
+  <h2 class="text-2xl font-semibold mb-4 mt-8" style="font-family: 'Comic Sans MS', serif;">Skills</h2>
   <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
     <div class="bg-white p-4 rounded shadow">
       <h3 class="text-lg font-medium mb-2">Frontend</h3>
@@ -73,7 +71,7 @@ permalink: /pages/about/
     </div>
   </div>
   
-  <h2>Experience</h2>
+  <h2 class="text-2xl font-semibold mb-4 mt-8" style="font-family: 'Comic Sans MS', serif;">Experience</h2>
   <div class="space-y-6 mb-8">
     <div class="bg-white p-6 rounded shadow">
       <h3 class="text-xl font-medium mb-1">Data Analyst</h3>
@@ -121,7 +119,7 @@ permalink: /pages/about/
       <p>- Succesfully built a disciplined and respectful team culture, maintaining strong morale and results under challenging conditions.</p>
     </div>
   </div>
-  <h2>Education</h2>
+  <h2 class="text-2xl font-semibold mb-4 mt-8" style="font-family: 'Comic Sans MS', serif;">Education</h2>
   <div class="space-y-6 mb-8">
     <div class="bg-white p-6 rounded shadow">
       <h3 class="text-xl font-medium mb-1">Python Programming Course</h3>
@@ -149,7 +147,7 @@ permalink: /pages/about/
       </p> 
     </div>
   </div>
-<h2>Certifications</h2>
+<h2 class="text-2xl font-semibold mb-4 mt-8" style="font-family: 'Comic Sans MS', serif;">Certifications</h2>
   <div class="space-y-6 mb-8">
     <div class="bg-white p-6 rounded shadow">
       <p>- Cisco Certified Network Associate (CCNA)</p>
