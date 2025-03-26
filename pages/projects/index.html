@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | My Portfolio</title>
+    <meta name="description" content="My Portfolio Page, showcasing my projects and skills. ">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat&display=swap" rel="stylesheet">
+
+    <!-- CV Access Script -->
+    <script src="/assets/js/cv-access.js"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        position: relative;
+        min-height: 100vh;
+        background-image: url('/assets/images/dev_background.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      .outer-container {
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .content-wrapper {
+        position: relative;
+        min-height: 100vh;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      header {
+        background-color: rgba(255, 255, 255, 0.55) !important;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(116, 2, 2, 0.1);
+      }
+
+      .content-area {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+      }
+
+      footer {
+        background-color: rgba(32, 31, 31, 0.753) !important;
+        margin-top: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+
+    <div class="outer-container">
+      <div class="content-wrapper">
+        <header class="bg-white shadow">
+  <div class="container-custom">
+    <nav class="flex items-center justify-between py-4">
+      <a href="/" class="text-xl font-bold text-primary hover:no-underline">My Portfolio</a>
+      
+      <ul class="flex space-x-6">
+        <li><a href="/" class="text-gray-700 hover:text-accent hover:no-underline">Home</a></li>
+        <li><a href="/pages/about" class="text-gray-700 hover:text-accent hover:no-underline">Experience</a></li>
+        <li><a href="/pages/projects" class="text-gray-700 hover:text-accent hover:no-underline">Projects</a></li>
+        <li><a href="/pages/connect" class="text-gray-700 hover:text-accent hover:no-underline">Connect</a></li>
+      </ul>
+    </nav>
+  </div>
+</header> 
+        <main>
+          <div class="content-area">
+            <div class="max-w-5xl mx-auto">
+  <h1>Projects</h1>
+  
+  <p class="text-lg mb-8">
+    Here are some of the projects I've worked on. Each demonstrates different skills and technologies.
+  </p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+    
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+      <div class="bg-gray-200 h-64">
+        
+        <img src="/assets/images/project1.jpg" alt="Portfolio website" class="w-full h-full object-cover" />
+        
+      </div>
+      <div class="p-6">
+        <h2 class="text-2xl font-bold mb-2">Portfolio website</h2>
+        <p class="text-gray-600 mb-4">This page is my personal portfolio website built using Jekyll and TailwindCSS, featuring a contact form and secure CV access control through Cloudflare Workers. The project implements various security measures including DDoS protection and controlled access to sensitive documents, while being hosted on GitHub Pages with a custom domain setup.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          
+          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Jekyll</span>
+          
+          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">TailwindCSS</span>
+          
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Cloudflare Workers</span>
+          
+          <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">GitHub Pages</span>
+          
+          <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">JavaScript</span>
+          
+          <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">HTML</span>
+          
+        </div>
+        <div class="flex space-x-4">
+          
+          <a href="https://demo-project1.example.com" target="_blank" rel="noopener noreferrer" class="text-accent font-medium hover:underline">View Demo</a>
+          
+          
+          <a href="https://github.com/PacurariuIM/portfolio_page" target="_blank" rel="noopener noreferrer" class="text-gray-600 font-medium hover:underline">GitHub</a>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+      <div class="bg-gray-200 h-64">
+        
+        <img src="/assets/images/food_app.png" alt="Nutrition app" class="w-full h-full object-cover" />
+        
+      </div>
+      <div class="p-6">
+        <h2 class="text-2xl font-bold mb-2">Nutrition app</h2>
+        <p class="text-gray-600 mb-4">A web application that helps users discover recipes based on available ingredients. Built with Flask and featuring recipe scraping, unit conversion, and PDF export capabilities.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          
+          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Flask</span>
+          
+          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Python</span>
+          
+          <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">HTML</span>
+          
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">CSS</span>
+          
+          <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">JavaScript</span>
+          
+          <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Bootstrap</span>
+          
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Github Actions</span>
+          
+          <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Hetzner Cloud server</span>
+          
+        </div>
+        <div class="flex space-x-4">
+          
+          <a href="https://kitche-net.eu" target="_blank" rel="noopener noreferrer" class="text-accent font-medium hover:underline">View Demo</a>
+          
+          
+          <a href="https://github.com/PacurariuIM/Project_1_Nutrition" target="_blank" rel="noopener noreferrer" class="text-gray-600 font-medium hover:underline">GitHub</a>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+      <div class="bg-gray-200 h-64">
+        
+        <img src="/assets/images/project3.jpg" alt="German language learning app (WIP)" class="w-full h-full object-cover" />
+        
+      </div>
+      <div class="p-6">
+        <h2 class="text-2xl font-bold mb-2">German language learning app (WIP)</h2>
+        <p class="text-gray-600 mb-4">A teaching tutor web app for learning German. </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          
+          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Typescript</span>
+          
+          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Python</span>
+          
+          <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Javascript</span>
+          
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">TailwindCSS</span>
+          
+        </div>
+        <div class="flex space-x-4">
+          
+          <a href="https://demo-project3.example.com" target="_blank" rel="noopener noreferrer" class="text-accent font-medium hover:underline">View Demo</a>
+          
+          
+          <a href="https://github.com/PacurariuIM/Language_App" target="_blank" rel="noopener noreferrer" class="text-gray-600 font-medium hover:underline">GitHub</a>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+      <div class="bg-gray-200 h-64">
+        
+        <img src="/assets/images/project4.jpg" alt="CRUDDUR Messaging App" class="w-full h-full object-cover" />
+        
+      </div>
+      <div class="p-6">
+        <h2 class="text-2xl font-bold mb-2">CRUDDUR Messaging App</h2>
+        <p class="text-gray-600 mb-4">A messaging app that allows user to write ephemeral posts.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          
+          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Python</span>
+          
+          <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Flask</span>
+          
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Javascript</span>
+          
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">CSS</span>
+          
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Shell scripting</span>
+          
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Ruby scripting</span>
+          
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">AWS services</span>
+          
+        </div>
+        <div class="flex space-x-4">
+          
+          <a href="https://demo-project4.example.com" target="_blank" rel="noopener noreferrer" class="text-accent font-medium hover:underline">View Demo</a>
+          
+          
+          <a href="https://github.com/PacurariuIM/aws-bootcamp-cruddur-2023" target="_blank" rel="noopener noreferrer" class="text-gray-600 font-medium hover:underline">GitHub</a>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="text-center">
+    <p class="mb-4">Interested in working together?</p>
+    <a href="/pages/connect" class="btn btn-primary">Get in Touch</a>
+  </div>
+</div>
+
+
+          </div>
+        </main>
+        <footer class="bg-primary text-white py-8">
+  <div class="container-custom">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <p class="text-sm">&copy; 2025 My Portfolio. All rights reserved.</p>
+      </div>
+      
+      <div class="flex space-x-4">
+        
+        <a href="https://github.com/pacurariuim" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:no-underline">
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        
+        
+        <a href="/pages/connect" class="text-gray-300 hover:text-white hover:no-underline">
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+</footer> 
+      </div>
+    </div>
+  </body>
+</html> 
